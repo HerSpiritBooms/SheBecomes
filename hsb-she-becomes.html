@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>She Becomes — Her Spirit Blooms</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --cream: #FAF7F2;
+  --parchment: #F2EBE0;
+  --blush: #E8C4B0;
+  --rose: #C4927A;
+  --mauve: #9B7B8A;
+  --deep: #2C1F2A;
+  --text: #3D2E38;
+  --soft: #7A6070;
+  --gold: #C9A96E;
+  --sage: #8FA68C;
+  --teal: #6A9E9A;
+}
+body {
+  background: var(--cream);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: var(--text);
+  line-height: 1.7;
+}
+.bar { height: 4px; background: linear-gradient(90deg, var(--rose), var(--gold), var(--teal), var(--mauve)); }
+.page { max-width: 640px; margin: 0 auto; padding: 56px 36px 80px; }
+
+.brand-tag {
+  text-align: center;
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 32px;
+}
+.ornament { text-align:center; color: var(--gold); font-size:14px; letter-spacing:8px; opacity:.6; margin-bottom:20px; }
+h1 {
+  text-align: center;
+  font-size: clamp(48px,10vw,72px);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--deep);
+  line-height: 1.0;
+  margin-bottom: 10px;
+}
+.h1-sub {
+  text-align: center;
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.subtitle {
+  text-align: center;
+  font-size: 17px;
+  font-style: italic;
+  color: var(--soft);
+  margin-bottom: 10px;
+}
+.badge {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 52px;
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 6px 18px;
+  border-radius: 20px;
+  opacity: .8;
+}
+
+.intro-block {
+  background: var(--parchment);
+  border-left: 3px solid var(--rose);
+  padding: 28px 30px;
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 52px;
+}
+.intro-block p {
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.85;
+  color: var(--soft);
+  margin-bottom: 12px;
+}
+.intro-block p:last-child { margin-bottom: 0; }
+
+.divider {
+  text-align: center;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 6px;
+  opacity: .5;
+  margin: 44px 0;
+}
+
+/* PILLAR HEADERS */
+.pillar-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(201,169,110,0.2);
+}
+.pillar-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.pillar-icon.spirit { background: linear-gradient(135deg, rgba(106,158,154,0.2), rgba(106,158,154,0.1)); }
+.pillar-icon.worth { background: linear-gradient(135deg, rgba(201,169,110,0.2), rgba(201,169,110,0.1)); }
+.pillar-icon.fem { background: linear-gradient(135deg, rgba(196,146,122,0.2), rgba(155,123,138,0.1)); }
+
+.pillar-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 8px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 3px;
+}
+.pillar-title {
+  font-size: 22px;
+  font-style: italic;
+  color: var(--deep);
+}
+
+/* SHIFT CARDS */
+.shift {
+  margin-bottom: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(232,196,176,0.3);
+  overflow: hidden;
+  background: white;
+}
+.shift-top {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid rgba(232,196,176,0.15);
+}
+.shift-number {
+  font-family: 'Jost', sans-serif;
+  font-size: 8.5px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .7;
+  margin-bottom: 10px;
+}
+.release {
+  font-size: 14px;
+  font-family: 'Jost', sans-serif;
+  color: var(--soft);
+  text-decoration: line-through;
+  text-decoration-color: rgba(196,146,122,0.5);
+  opacity: .7;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+.become {
+  font-size: 19px;
+  font-style: italic;
+  color: var(--deep);
+  line-height: 1.3;
+}
+.shift-affirm {
+  padding: 14px 24px;
+  background: linear-gradient(135deg, rgba(201,169,110,0.05), rgba(155,123,138,0.04));
+  font-size: 14.5px;
+  font-style: italic;
+  color: var(--soft);
+  border-left: 2px solid var(--gold);
+}
+
+/* DECLARATION */
+.declaration {
+  background: var(--deep);
+  color: var(--cream);
+  border-radius: 20px;
+  padding: 40px 34px;
+  margin: 52px 0;
+  text-align: center;
+}
+.declaration .d-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 8px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .8;
+  margin-bottom: 20px;
+}
+.declaration h2 {
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(250,247,242,0.95);
+  margin-bottom: 20px;
+}
+.declaration p {
+  font-size: 17px;
+  font-style: italic;
+  line-height: 2.0;
+  color: rgba(250,247,242,0.78);
+}
+
+/* CHALLENGE */
+.challenge-block {
+  border: 1px solid rgba(201,169,110,0.3);
+  border-radius: 20px;
+  padding: 36px 30px;
+  margin-bottom: 44px;
+}
+.challenge-block .c-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 8.5px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 10px;
+}
+.challenge-block h2 { font-size: 26px; font-style: italic; color: var(--deep); margin-bottom: 12px; }
+.challenge-block p { font-size: 15px; color: var(--soft); font-style: italic; line-height: 1.8; margin-bottom: 20px; }
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 8px;
+}
+.day-chip {
+  border: 1px solid rgba(201,169,110,0.3);
+  border-radius: 10px;
+  padding: 10px 6px;
+  text-align: center;
+  background: var(--parchment);
+}
+.day-chip .d-num {
+  font-family: 'Jost', sans-serif;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 3px;
+}
+.day-chip .d-shift { font-size: 12px; font-style: italic; color: var(--deep); line-height: 1.3; }
+
+/* CTA */
+.cta-block {
+  text-align: center;
+  padding: 48px 30px;
+  background: linear-gradient(135deg, var(--parchment), white);
+  border-radius: 20px;
+  border: 1px solid rgba(232,196,176,0.3);
+  margin-top: 20px;
+}
+.cta-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 14px;
+}
+.cta-title { font-size: 28px; font-style: italic; color: var(--deep); margin-bottom: 10px; }
+.cta-desc { font-size: 15px; color: var(--soft); font-style: italic; line-height: 1.7; margin-bottom: 24px; }
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--rose), var(--mauve));
+  color: white;
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+.footer {
+  text-align: center;
+  margin-top: 56px;
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--soft);
+  opacity: .5;
+}
+
+.pillar-section { margin-bottom: 52px; }
+</style>
+</head>
+<body>
+<div class="bar"></div>
+<div class="page">
+
+  <div class="brand-tag">Her Spirit Blooms</div>
+  <div class="ornament">✦ · ✦ · ✦</div>
+  <h1>She Becomes</h1>
+  <div class="h1-sub">11 Belief Shifts</div>
+  <p class="subtitle">Release who you were. Fully become who you are.</p>
+  <span class="badge">Her Spirit Blooms · $11</span>
+
+  <div class="intro-block">
+    <p>You didn't come here by accident.</p>
+    <p>Something in you already knows it is time — time to stop carrying beliefs that were never yours, stop shrinking into a version of yourself the world decided was acceptable, and stop waiting for permission to be the woman you already are.</p>
+    <p>These 11 shifts are not information. They are invitations to become.</p>
+  </div>
+
+  <div class="divider">· · · · ·</div>
+
+  <!-- PILLAR ONE -->
+  <div class="pillar-section">
+    <div class="pillar-header">
+      <div class="pillar-icon spirit">✦</div>
+      <div>
+        <div class="pillar-label">Pillar One</div>
+        <div class="pillar-title">Spiritual Identity</div>
+      </div>
+    </div>
+
+    <div class="shift">
+      <div class="shift-top">
+        <div class="shift-number">Shift 01</div>
+        <div class="release">I am defined by what has happened to me</div>
+        <div class="become">I am a spiritual being having a human experience. My wounds do not define me — my soul does.</div>
+      </div>
+      <div class="shift-affirm">I am not my story. I am the consciousness that is aware of my story, and I am becoming free.</div>
+    </div>
+
+    <div class="shift">
+      <div class="shift-top">
+        <div class="shift-number">Shift 02</div>
+        <div class="release">I have to figure everything out alone</div>
+        <div class="become">I am divinely guided. Spirit is always speaking to me, and I am learning to trust what I hear.</div>
+      </div>
+      <div class="shift-affirm">I am held by something greater than myself. I open to receive guidance now.</div>
+    </div>
+
+    <div class="shift">
+      <div class="shift-top">
+        <div class="shift-number">Shift 03</div>
+        <div class="release">My awakening makes me different from others</div>
+        <div class="become">My awakening is my return to my truest self. It connects me more deeply to all of life.</div>
+      </div>
+      <div class="shift-affirm">The more I become myself, the more I belong everywhere that is true.</div>
+    </div>
+
+    <div class="shift">
+      <div class="shift-top">
+        <div class="shift-number">Shift 04</div>
+        <div class="release">Spiritual growth means I should have it all together</div>
+        <div class="become">Spiritual growth means I am becoming more honest, more loving, and more free — not more perfect.</div>
+      </div>
+      <div class="shift-affirm">I release the performance of being spiritual. I embrace the practice of being human.</div>
+    </div>
+  </div>
+
+  <!-- PILLAR TWO -->
+  <div class="pillar-section">
+    <div class="pillar-header">
+      <div class="pillar-icon worth">✦</div>
+      <div>
+        <div class="pillar-label">Pillar Two</div>
+        <div class="pillar-title">Worthiness &amp; Receiving</div>
+      </div>
+    </div>
+
+    <div class="shift">
+      <div class="shift-top">
+        <div class="shift-number">Shift 05</div>
+        <div class="release">I have to earn my worth through doing and proving</div>
+        <div class="become">I am inherently worthy. My existence is enough. I do not earn what was always already mine.</div>
+      </div>
+      <div class="shift-affirm">I am worthy now. Not when. Not after. Right now, exactly as I am.</div>
+    </div>
+
+    <div class="shift">
+      <div class="shift-top">
+        <div class="shift-number">Shift 06</div>
+        <div class="release">Wanting things is greedy or selfish</div>
+        <div class="become">My desires are sacred data. They are Spirit showing me the direction of my becoming.</div>
+      </div>
+      <div class="shift-affirm">I am allowed to want more. I am allowed to have more. Receiving is not taking — it is aligning.</div>
+    </div>
+
+    <div class="shift">
+      <div class="shift-top">
+        <div class="shift-number">Shift 07</div>
+        <div class="release">Good things happening to me means something bad is coming</div>
+        <div class="become">I am safe to receive. Good things flow to me because I am open, not because I have been lucky or unlucky.</div>
+      </div>
+      <div class="shift-affirm">I release the waiting for things to fall apart. I am safe inside abundance.</div>
+    </div>
+
+    <div class="shift">
+      <div class="shift-top">
+        <div class="shift-number">Shift 08</div>
+        <div class="release">I need to have more before I can be more</div>
+        <div class="become">I become first. The having follows the being. I am the source — not the product — of my abundance.</div>
+      </div>
+      <div class="shift-affirm">I step into the woman I am becoming today, not when the conditions are right.</div>
+    </div>
+  </div>
+
+  <!-- PILLAR THREE -->
+  <div class="pillar-section">
+    <div class="pillar-header">
+      <div class="pillar-icon fem">✦</div>
+      <div>
+        <div class="pillar-label">Pillar Three</div>
+        <div class="pillar-title">Feminine Power</div>
+      </div>
+    </div>
+
+    <div class="shift">
+      <div class="shift-top">
+        <div class="shift-number">Shift 09</div>
+        <div class="release">Resting means I am falling behind</div>
+        <div class="become">Rest is sacred strategy. My power lives in my softness, not my hustle. Ease is my most aligned state.</div>
+      </div>
+      <div class="shift-affirm">I give myself permission to slow down. My best work comes from a full cup, not an empty one.</div>
+    </div>
+
+    <div class="shift">
+      <div class="shift-top">
+        <div class="shift-number">Shift 10</div>
+        <div class="release">I have to be strong all the time to survive</div>
+        <div class="become">My softness is not weakness — it is wisdom. I am powerful because I feel deeply, not despite it.</div>
+      </div>
+      <div class="shift-affirm">I release the armor. I allow myself to be seen in my fullness — tender and fierce, both.</div>
+    </div>
+
+    <div class="shift">
+      <div class="shift-top">
+        <div class="shift-number">Shift 11</div>
+        <div class="release">The woman I want to become is someone else</div>
+        <div class="become">She is already within me. I am not becoming someone new — I am remembering someone ancient.</div>
+      </div>
+      <div class="shift-affirm">I do not chase her. I choose her. Every single day, I choose to become who I already am.</div>
+    </div>
+  </div>
+
+  <div class="declaration">
+    <div class="d-label">✦ Your Identity Declaration — read every morning</div>
+    <h2>I Am She Who Becomes</h2>
+    <p>
+      I release every belief that kept me small.<br>
+      I release every story that was never mine to carry.<br>
+      I release the version of myself who needed permission.<br><br>
+      I am a spiritual being in full remembrance of her power.<br>
+      I am worthy of everything I desire — right now, as I am.<br>
+      I am soft, sovereign, and rooted in my truth.<br><br>
+      I do not wait. I do not shrink. I do not hide.<br>
+      I become. Every single day, I become.<br><br>
+      She is not coming. She is here.<br>
+      <em>She is me.</em>
+    </p>
+  </div>
+
+  <div class="challenge-block">
+    <div class="c-label">✦ Your 11-Day Practice</div>
+    <h2>The Becoming Challenge</h2>
+    <p>Each day, read one shift. Sit with it. Say the affirmation aloud. Write what it brings up. Let one shift move through you fully before you move to the next. This is not a race to the finish — it is a practice of becoming.</p>
+    <div class="challenge-grid">
+      <div class="day-chip"><div class="d-num">Day 1</div><div class="d-shift">Shift 01</div></div>
+      <div class="day-chip"><div class="d-num">Day 2</div><div class="d-shift">Shift 02</div></div>
+      <div class="day-chip"><div class="d-num">Day 3</div><div class="d-shift">Shift 03</div></div>
+      <div class="day-chip"><div class="d-num">Day 4</div><div class="d-shift">Shift 04</div></div>
+      <div class="day-chip"><div class="d-num">Day 5</div><div class="d-shift">Shift 05</div></div>
+      <div class="day-chip"><div class="d-num">Day 6</div><div class="d-shift">Shift 06</div></div>
+      <div class="day-chip"><div class="d-num">Day 7</div><div class="d-shift">Shift 07</div></div>
+      <div class="day-chip"><div class="d-num">Day 8</div><div class="d-shift">Shift 08</div></div>
+      <div class="day-chip"><div class="d-num">Day 9</div><div class="d-shift">Shift 09</div></div>
+      <div class="day-chip"><div class="d-num">Day 10</div><div class="d-shift">Shift 10</div></div>
+      <div class="day-chip"><div class="d-num">Day 11</div><div class="d-shift">Shift 11</div></div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <div class="cta-eyebrow">Your Next Step</div>
+    <div class="cta-title">Ready to Go Even Deeper?</div>
+    <p class="cta-desc">Spiritually Blooming is the complete woman's guide to waking up, communicating with Spirit, and coming fully home to her soul.</p>
+    <a href="https://herspiritblooms.com/shop/f98a4a8f-5881-4a3c-b1d2-86361aeaf3f4" class="cta-btn">Explore Spiritually Blooming</a>
+  </div>
+
+  <div class="footer">© Her Spirit Blooms · @herspiritblooms · with love</div>
+</div>
+</body>
+</html>
